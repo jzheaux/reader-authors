@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta property="og:url" content="https://other.example/recipes/toast">
+<!-- A Recipe on its own, its type a list, its steps one string, its image an object. -->
+<script type='application/ld+json'>
+{"@context": "http://schema.org", "@type": ["Recipe"], "name": "Garlic Toast",
+ "author": [{"@type": "Person", "name": "Sam"}, {"@type": "Person", "name": "Ana"}],
+ "publisher": {"@type": "Organization", "name": "Other Recipes"},
+ "image": {"@type": "ImageObject", "url": "https://other.example/toast.png"},
+ "recipeYield": "Makes 8 slices.", "totalTime": "PT15M",
+ "recipeIngredient": ["8 slices bread", "3 cloves garlic, minced", "1 * 2 test", "Salt"],
+ "recipeInstructions": "Heat the oven.
+Spread the garlic on the bread and toast 5 minutes.
+Season with salt."}
+</script>
+</head>
+<body></body>
+</html>

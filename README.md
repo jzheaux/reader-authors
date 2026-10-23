@@ -18,6 +18,7 @@ Needs Node 22.13 or later.
 | | |
 | --- | --- |
 | `author gc` | a General Conference activity packet: a hundred puzzle pages, each a scripture, a puzzle reader plays, and a question to think about, with a page for each talk mixed in; and an answer key, every puzzle in it solved |
+| `author recipe` | a recipe from a web page, added to a recipes file: its amounts scaling, its ingredients tied to its steps, its photo beside it, and credited to the site and cook it's from |
 
 `author <name> --help` says what each one takes. Every author writes to
 `--out <dir>` (the current directory if not given), and leaves alone
@@ -42,6 +43,41 @@ Arial Black (macOS's, or `--font`).
 
 The seed is printed, and written at the top of the answer key, so a packet
 can be made again.
+
+### recipe
+
+```console
+$ author recipe https://www.bbcgoodfood.com/recipes/easy-pancakes --out ~/Documents/self/io
+$ author recipe --html ~/Downloads/waffles.html https://thesaltymarshmallow.com/homemade-belgian-waffle-recipe/
+```
+
+It adds the recipe to the end of `recipes.md` (or `--file`), after a
+`---`, and saves its photo as `images/recipe-<name>.jpg` beside it. A new
+file gets front matter naming the ingredients' stages, `have, out, used`
+(or `--stages`). A recipe whose page is in the file already isn't added
+again.
+
+There's no site's layout to learn: it reads the schema.org `Recipe` that
+most recipe sites describe theirs with for search engines -- WordPress
+Recipe Maker, Tasty, Mediavine Create, NYT Cooking, BBC Good Food and
+more. A page without one isn't read. What a site keeps only on the page,
+not in its `Recipe`, isn't either: WordPress Recipe Maker's notes, say.
+
+Many sites turn a script away (Allrecipes, Serious Eats, and others behind
+Cloudflare's bot checks). For those, save the page from a browser (Save
+Page As…, HTML only is enough) and give it with `--html`, with its url to
+credit; the photo is still fetched, and left out, with a word, if it
+can't be.
+
+Each ingredient's key, the `!word` its steps are found by, is a guess: the
+last word naming it that a step says. reader flags one *in no step*; move
+its `!` by hand.
+
+**Credit isn't permission.** Each recipe is linked to its page and its
+cook, as it should be. A list of ingredients isn't anyone's to own, but
+the way the steps are written, and the photo, are, so this is for keeping
+recipes you cook from, not for sharing or publishing what it writes;
+`--no-image` leaves the photo out.
 
 ## Layout
 

@@ -12,6 +12,9 @@ import { render } from 'reader/src/render.js';
 
 export { render };
 
+/** An amount, as `count:` reads one. */
+export { AMOUNT } from 'reader/features/count/amount.js';
+
 const kinds = {};
 
 /** A kind of puzzle's `parse`, `format` and `solved`, as reader plays it. */
