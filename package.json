@@ -1,0 +1,26 @@
+{
+  "name": "reader-authors",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Authors that write reader-markdown: each makes a document, or a set of them, from what it's given, invented or converted.",
+  "type": "module",
+  "bin": {
+    "author": "./bin/author.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "opentype.js": "1.3.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "reader": "github:jzheaux/reader#v0.0.2"
+  }
+}
