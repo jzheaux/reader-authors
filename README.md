@@ -18,6 +18,7 @@ Needs Node 22.13 or later.
 | | |
 | --- | --- |
 | `author gc` | a General Conference activity packet: a hundred puzzle pages, each a scripture, a puzzle reader plays, and a question to think about, with a page for each talk mixed in; and an answer key, every puzzle in it solved |
+| `author gutenberg` | a book from Project Gutenberg: its headings, paragraphs, verse and speeches, its printed pages marked, and none of its pictures, contents pages or Gutenberg's own |
 | `author recipe` | a recipe from a web page, added to a recipes file: its amounts scaling, its ingredients tied to its steps, its photo beside it, and credited to the site and cook it's from |
 
 `author <name> --help` says what each one takes. Every author writes to
@@ -43,6 +44,35 @@ Arial Black (macOS's, or `--font`).
 
 The seed is printed, and written at the top of the answer key, so a packet
 can be made again.
+
+### gutenberg
+
+```console
+$ author gutenberg 1342 --out ../reader-library    # Pride and Prejudice
+$ author gutenberg --all --out ../reader-library   # every book it knows
+$ author gutenberg 84 --start 'text:Letter 1' --published 1818 # one it doesn't
+$ author gutenberg --list
+```
+
+A book is its eBook number on gutenberg.org, its address there, or the
+slug of one it knows. It's written to `<slug>.md` (or `--file`), from the
+book's HTML, fetched once into `~/.cache/reader-authors/gutenberg` (or
+`--cache`), a pause between books.
+
+The books it knows are in
+[`authors/gutenberg/books.js`](authors/gutenberg/books.js), each with what
+its front matter says, how a place in it is cited, what kind of text it
+is (prose, a play, or verse), and where in the page the work starts and
+ends. Any other book is read as prose from the top of its page, with the
+title, author and translator Gutenberg catalogs it under, and filed under
+the author's last name; `--kind`, `--start`, `--end`, `--drop`, `--cite`
+and the front matter's `--title`, `--author` and so on say otherwise. Once
+a book reads well, add it to `books.js`.
+
+The tests render each book it knows whose page is in the cache, and fail
+if anything in one reads as reader's syntax -- a list, an aside, an
+exchange -- rather than the book's text; run `author gutenberg --all`
+first for them to.
 
 ### recipe
 

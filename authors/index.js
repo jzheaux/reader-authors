@@ -5,5 +5,6 @@
 
 export const AUTHORS = {
   gc: () => import('./gc/index.js'),
+  gutenberg: () => import('./gutenberg/index.js'),
   recipe: () => import('./recipe/index.js'),
 };
